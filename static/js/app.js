@@ -32,28 +32,36 @@ function optionChanged(newSample) {
 function buildCharts(sample) {
   console.log("in buildCharts:  ")
   // @TODO: Use `d3.json` to fetch the sample data for the plots
-
     // @TODO: Build a Pie Chart
     // HINT: You will need to use slice() to grab the top 10 sample_values,
     // otu_ids, and labels (10 each).
+    d3.select("#pie").html("")
     var url = `/samples/${sample}`;
       d3.json(url).then(function(response) {
         var data = [{
           values: (response.sample_values).slice(0,10),
           labels: (response.otu_ids).slice(0,10),
           hoverinfo: (response.otu_labels).slice(0,10),
-          type: "pie"
+          type: "pie",
+          hole: 0.5,
+          marker: {
+            line: {
+            color: 'black',
+            width: 3
+          }
+        }   
         }];
         
         var layout = {
           title: "Most Prominent OTUs"
         };
       
-        Plotly.plot("pie", data, layout);
+        Plotly.newPlot("pie", data, layout);
         });
     
 
     // @TODO: Build a Bubble Chart using the sample data
+    d3.select("#bubble").html("")
     var url = `/samples/${sample}`;
       d3.json(url).then(function(response) {
         var data = [{
@@ -65,15 +73,20 @@ function buildCharts(sample) {
           marker: {
             color:response.otu_ids,
             size:response.sample_values,
-          }
+            colorscale: "Earth"
+          },
+          line: {
+            color: 'black',
+            width: 3}
         }];
 
         var layout = {
           title: "Interactive Dashboard"
         };
 
-        Plotly.plot("bubble", data, layout);
+        Plotly.newPlot("bubble", data, layout);
         });
+
       };
 
 
