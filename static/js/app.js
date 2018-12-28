@@ -9,9 +9,10 @@ function init() {
     sampleNames.forEach((sample) => {
       selector
         .append("option")
-        .text(sample)
+        .text(`Sample ${sample}`)
         .property("value", sample);
     });
+
 
     // Use the first sample from the list to build the initial plots
     const firstSample = sampleNames[0];
@@ -47,15 +48,15 @@ function buildCharts(sample) {
           hole: 0.5,
           marker: {
             line: {
-            color: 'black',
+            color: 'white',
             width: 3
-          }
+          }, 
         }   
         }];
         
         var layout = {
-          height: 500,
-          width: 800,
+          paper_bgcolor:'rgba(0,0,0,0)',
+          plot_bgcolor:'rgba(0,0,0,0)',
           title: `Top Sample Counts for ${sample}`
         };
       
@@ -67,25 +68,33 @@ function buildCharts(sample) {
     d3.select("#bubble").html("")
     var url = `/samples/${sample}`;
       d3.json(url).then(function(response) {
-        console.log(response.sample_value)
+        console.log(response.sample_values)
+        const otu_ids = response.otu_ids
+        const sample_values = response.sample_values
+        const otu_labels = response.otu_labels
         var data = [{
-          x: response.otu_ids,
-          y: response.sample_value,
+          x: otu_ids,
+          y: sample_values ,
           type: 'scatter',
           mode:'markers',
-          text: response.otu_labels,
+          text: otu_labels, 
+          name: `${sample}`, 
+          hoverinfo:'text+x+y+name',
           marker: {
-            color:response.otu_ids,
-            size:response.sample_values,
+            color: otu_ids,
+            size: sample_values,
             colorscale: "Earth"
           },
           line: {
-            color: 'black',
-            width: 3}
+            color: 'white',
+            width: 3}, 
         }];
 
         var layout = {
+          width:1450,
+          height:450,
           margin: { t: 0 },
+          hovermode: 'closest',
           title: "Interactive Dashboard",
           yaxis: {range: [0, 250]}
         };
@@ -112,7 +121,7 @@ function buildMetadata(sample) {
           console.log(key[1]);
           var key1 = key[0];
           var value1 = key[1];
-          d3.select("#sample-metadata").append("h6").text(`${key1}:${value1}`)})
+          d3.select("#sample-metadata").append("h5").text(`${key1}:${value1}`)})
     // Hint: Inside the loop, you will need to use d3 to append new
     // tags for each key-value in the metadata.
     // BONUS: Build the Gauge Chart

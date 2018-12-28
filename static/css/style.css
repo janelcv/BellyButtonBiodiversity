@@ -1,0 +1,96 @@
+  .jumbotron {
+    position: relative;
+    height: 350px;
+    padding: 20px;
+    margin: 0;
+    background: black;
+    background-image: url("../images/image.jpg");
+    background-attachment: fixed;
+    background-position: bottom center;
+    background-size: cover;
+  }
+
+  .jumbotron h1 {
+    position: relative;
+    margin-top: 50px;
+    font-size: 0.1rem;
+    animation: title 1.2s forwards linear;
+    color: white;
+    text-align: center;
+    font-family: 'Bungee Inline', cursive;
+  }
+  
+  .jumbotron p {
+    position: relative;
+    font-size: 1rem;
+    opacity: 0;
+    animation: subtitle 1.2s forwards linear;
+    animation-delay: 1.2s;
+    color: white;
+    text-align: center;
+    font-family: 'Bungee Inline', cursive;
+  }
+
+  .well {
+      background: black;
+      opacity: 0.75;
+      text-align: center;
+      position: relative;
+      
+
+  }
+  .well h5{
+      color: white;
+      font-family: 'Bungee Inline', cursive;
+  }
+  .panel {
+    padding-top: 10px;
+    color: white;
+    font-family: 'Bungee Inline', cursive;
+    background-color: black;
+    height: 450px;
+}
+    #head{
+    background-color: black;
+    color: white;
+    }
+    .container-fluid{
+        background-color: black;}
+        
+    .row{
+        opacity: 0.75;
+    }
+
+
+  /* keyframe animations which will be used to animate the title */
+@keyframes title {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      font-size: 4.5rem;
+      opacity: 1;
+    }
+  }
+  
+  @keyframes smaller-title {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      font-size: 5.5rem;
+      opacity: 1;
+    }
+  }
+  
+  @keyframes subtitle {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
