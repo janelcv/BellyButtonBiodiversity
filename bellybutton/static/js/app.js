@@ -57,6 +57,8 @@ function buildCharts(sample) {
         var layout = {
           paper_bgcolor:'rgba(0,0,0,0)',
           plot_bgcolor:'rgba(0,0,0,0)',
+          // paper_bgcolor: "rgb(31,31,31)",
+          // plot_bgcolor: "rgb(31,31,31)",
           title: `Top Sample Counts for ${sample}`
         };
       
@@ -83,7 +85,7 @@ function buildCharts(sample) {
           marker: {
             color: otu_ids,
             size: sample_values,
-            colorscale: "Earth"
+            colorscale: "Electric"
           },
           line: {
             color: 'white',
@@ -93,6 +95,10 @@ function buildCharts(sample) {
         var layout = {
           width:1450,
           height:450,
+          paper_bgcolor:'rgba(0,0,0,0)',
+          plot_bgcolor:'rgba(0,0,0,0)',
+          // paper_bgcolor: "rgb(31,31,31)",
+          // plot_bgcolor: "rgb(31,31,31)",
           margin: { t: 0 },
           hovermode: 'closest',
           title: "Interactive Dashboard",

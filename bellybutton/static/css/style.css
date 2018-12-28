@@ -1,3 +1,11 @@
+  
+  html,
+  body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  
   .jumbotron {
     position: relative;
     height: 350px;
@@ -8,6 +16,7 @@
     background-attachment: fixed;
     background-position: bottom center;
     background-size: cover;
+    align-content: center;
   }
 
   .jumbotron h1 {
@@ -32,6 +41,8 @@
   }
 
   .well {
+      margin: auto;
+      width: 40%;
       background: black;
       opacity: 0.75;
       text-align: center;
@@ -43,19 +54,25 @@
       color: white;
       font-family: 'Bungee Inline', cursive;
   }
+
   .panel {
+    line-height: 30px;
     padding-top: 10px;
     color: white;
     font-family: 'Bungee Inline', cursive;
-    background-color: black;
+    background-image: url("../images/image.jpg");
+    background-color: #696969;
     height: 450px;
 }
     #head{
-    background-color: black;
+    background-color: #696969;
+    background-image: url("../images/image.jpg");
     color: white;
     }
     .container-fluid{
-        background-color: black;}
+        background-image: url("../images/background.jpg");
+        background-color: #696969;
+      }
         
     .row{
         opacity: 0.75;
