@@ -38,6 +38,7 @@ function buildCharts(sample) {
     d3.select("#pie").html("")
     var url = `/samples/${sample}`;
       d3.json(url).then(function(response) {
+        console.log(response.sample_values)
         var data = [{
           values: (response.sample_values).slice(0,10),
           labels: (response.otu_ids).slice(0,10),
@@ -53,7 +54,9 @@ function buildCharts(sample) {
         }];
         
         var layout = {
-          title: "Most Prominent OTUs"
+          height: 500,
+          width: 800,
+          title: `Top Sample Counts for ${sample}`
         };
       
         Plotly.newPlot("pie", data, layout);
@@ -64,6 +67,7 @@ function buildCharts(sample) {
     d3.select("#bubble").html("")
     var url = `/samples/${sample}`;
       d3.json(url).then(function(response) {
+        console.log(response.sample_value)
         var data = [{
           x: response.otu_ids,
           y: response.sample_value,
@@ -81,12 +85,13 @@ function buildCharts(sample) {
         }];
 
         var layout = {
-          title: "Interactive Dashboard"
+          margin: { t: 0 },
+          title: "Interactive Dashboard",
+          yaxis: {range: [0, 250]}
         };
 
         Plotly.newPlot("bubble", data, layout);
         });
-
       };
 
 
