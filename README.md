@@ -163,7 +163,7 @@ buildMetadata(newSample);
 ```
 4. ###  Heroku.
 
-Belly Button Biodiversity applicationwas deployed to Heroku with 2 steps:
+Belly Button Biodiversity application was deployed to [Heroku](https://mysterious-mesa-72733.herokuapp.com) with 2 steps:
 
 1. Prepare the application with additional configuration files (`Procfile` and `requirements.txt`)
     *New conda environment was created.
