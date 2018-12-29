@@ -59,7 +59,7 @@ function buildCharts(sample) {
           plot_bgcolor:'rgba(0,0,0,0)',
           // paper_bgcolor: "rgb(31,31,31)",
           // plot_bgcolor: "rgb(31,31,31)",
-          title: `Top Sample Counts for ${sample}`
+          title: `Top Values for Sample ${sample} `
         };
       
         Plotly.newPlot("pie", data, layout);
@@ -102,7 +102,9 @@ function buildCharts(sample) {
           margin: { t: 0 },
           hovermode: 'closest',
           title: "Interactive Dashboard",
-          yaxis: {range: [0, 250]}
+          yaxis: {title: 'sample_values'},
+          yaxis: {range: [0, 250]},
+          xaxis: {title: 'otu_ids'},
         };
 
         Plotly.newPlot("bubble", data, layout);
